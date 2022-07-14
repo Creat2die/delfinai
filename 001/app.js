@@ -1,22 +1,32 @@
-
-
 function rand(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-  }
-
-  console.log(`labas`);
-    let array=[];
-    for(i=0; i <10; i++){
-       array.push(rand(7, 77));
-       console.log(array[i]);
-    }
-   
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 
-    const cats = ['Murka', 'Pilkis', 'Rainius'];
+// const mas = [...Array(10)].map(_ => rand(7, 77));
 
-    console.log(cats[rand(0,2)]);
+const mas = [];
 
-    array.forEach(n => console.log(n));
+// mas[0] = 'Petras';
+// mas[1] = 'Ieva';
+
+// mas.push('Bebras');
+
+// mas.unshift('Kurmis');
+
+for (let i = 0; i < 10; i++) {
+    mas.push(rand(7, 77));
+}
+
+// const cats = ['Murka', 'Pilkis', 'Rainius'];
+
+console.log(mas);
+
+
+// for (let i = 0; i < 10; i++) {
+//     console.log(6);
+// }
+
+mas.forEach(n => console.log(n));
