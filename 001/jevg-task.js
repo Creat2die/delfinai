@@ -100,3 +100,4 @@ for(n of arry7){
     }
 }
 console.log(sum/s);
+
