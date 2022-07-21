@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.kv-bin{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.kv{
+  height: 100px;
+  width: 100px;
+  border: solid white 2px;
+  background-color: green;
+}
