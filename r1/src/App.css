@@ -52,3 +52,22 @@
   border: solid white 2px;
   background-color: green;
 }
+
+.kvadr{
+  height: 100px;
+  width: 100px;
+  border: solid white 2px;
+  background-color: green;
+}
+.kvadrRed{
+  height: 100px;
+  width: 100px;
+  border: solid white 2px;
+  background-color: red;
+}
+.kvadrBlue{
+  height: 100px;
+  width: 100px;
+  border: solid white 2px;
+  background-color: blue;
+}
