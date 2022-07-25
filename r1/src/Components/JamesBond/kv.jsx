@@ -7,7 +7,7 @@ useEffect(()=> {
     return () => {
         console.log('mire', i);
     }
-}, [])
+}, [i])
 
     return(
         <div className="kv" style={{
