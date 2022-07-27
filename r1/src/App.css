@@ -71,3 +71,10 @@
   border: solid white 2px;
   background-color: blue;
 }
+
+.radio input{
+  display: none;
+}
+.radio label{
+  cursor:pointer;
+}

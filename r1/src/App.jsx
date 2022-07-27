@@ -1,40 +1,46 @@
 import './App.css';
-import { useState } from "react";
-import randColor from './Functions/randColor';
-import Kv from './Components/JamesBond/kv';
-import { useEffect } from 'react';
-//import Count from './Components/JamesBond/Count';
-import ForeverYoung from './Components/JamesBond/ForeverYoung';
-
+import PirmasisContekstas from './Contexts/PirmasisContestas';
+import { KitasContekstas } from './Contexts/PirmasisContestas';
+import M1 from './Components/009/M1';
+import { useState } from 'react';
+import { useRef } from 'react';
 
 function App() {
 
-    const [kv, setKv] = useState([]);
+    const good =useRef();
 
-    const kvPress = () =>{
-        setKv(k => [...k,randColor()]);
-        console.log('ja ja 1');
+
+    let bla = 5;
+
+    const blaSuper = useRef(5);
+    const [count, setCount]= useState(0);
+
+    const doCount =() =>{
+
+        const my = good.current;
+
+       setCount(c => c+1);
+       bla ++;
+       console.log(bla);
+       blaSuper.current++;
+       console.log(blaSuper.current);
     }
 
-    useEffect(()=>{
-        if(kv.length !==0){
-        console.log('jaja 2');
-        }
-    }, [kv]);
-
     return (
+        <PirmasisContekstas.Provider value={{
+            pirmas: 'Valio',
+            spalva: 'pink'
+        }}>
       <div className="App">
         <header className="App-header"> 
-        <h1 onClick={kvPress}>State</h1>
-        <div className='kv-bin'>
-            {
-                kv.map((c,i) => <Kv key={i} i={i} c={c}></Kv>)
-            }
-             </div>
-        <ForeverYoung></ForeverYoung>
-
+        <h1>
+            useContext & useRef {count}
+        </h1>
+        <M1 kas="Penki"></M1>
+        <button ref={good} onClick={doCount}>+1</button>
         </header>
       </div>
+      </PirmasisContekstas.Provider>
     );
   }
   
