@@ -4,7 +4,7 @@ import './App.scss';
 import AnimalsContexts from './Components/AnimalsContexts';
 import Create from './Components/Create';
 import List from './Components/List';
-import { create, read, destroy } from './functions/localstorage';
+import { create, read, destroy, update } from './functions/localstorage';
 import Edit from './Components/Edit';
 
 const keyLock = 'myFantasticZoo';
@@ -22,6 +22,7 @@ function App(){
 
   const [modalData, setModalData] = useState(null);
   const[lastUpdate, setLastUpsdate] = useState(Date.now())
+  const [editData, setEditData] = useState(null);
 
   const [createData, setCreateData] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
@@ -29,7 +30,7 @@ function App(){
 
 
   useEffect(() => {
-    setAnimals(read(keyLock));
+    setAnimals(read(keyLock).sort((a,b) => a.id - b.id));
   }, [lastUpdate]);
 
   useEffect(() => {
@@ -48,12 +49,20 @@ function App(){
     setLastUpsdate(Date.now());
   }, [deleteData])
 
+  useEffect(() => {
+    if(null === editData){
+      return;
+    }
+    update(keyLock, editData, editData.id);
+    setLastUpsdate(Date.now());
+  }, [editData])
+
 
 
   return (
     <AnimalsContexts.Provider value={{
       animalsTypes, setCreateData, animals,setDeleteData, modalData,
-      setModalData
+      setModalData,setEditData
     }}>
 
       
