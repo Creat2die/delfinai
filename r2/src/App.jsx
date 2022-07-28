@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import './App.scss';
 import './bootstrap.css';
+import './App.scss';
 import AnimalsContexts from './Components/AnimalsContexts';
 import Create from './Components/Create';
 import List from './Components/List';
 import { create, read, destroy } from './functions/localstorage';
-
+import Edit from './Components/Edit';
 
 const keyLock = 'myFantasticZoo';
 const animalsTypes = [
@@ -19,11 +19,14 @@ const animalsTypes = [
 
 
 function App(){
+
+  const [modalData, setModalData] = useState(null);
+  const[lastUpdate, setLastUpsdate] = useState(Date.now())
+
   const [createData, setCreateData] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
   const [animals, setAnimals] = useState(null);
 
-  const[lastUpdate, setLastUpsdate] = useState(Date.now())
 
   useEffect(() => {
     setAnimals(read(keyLock));
@@ -49,7 +52,8 @@ function App(){
 
   return (
     <AnimalsContexts.Provider value={{
-      animalsTypes, setCreateData, animals,setDeleteData
+      animalsTypes, setCreateData, animals,setDeleteData, modalData,
+      setModalData
     }}>
 
       
@@ -63,6 +67,7 @@ function App(){
         </div>
       </div>
     </div>
+    <Edit></Edit>
     </AnimalsContexts.Provider>
   );
 }
