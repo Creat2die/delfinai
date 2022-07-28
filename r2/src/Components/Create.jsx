@@ -4,9 +4,16 @@ import AnimalsContexts from "./AnimalsContexts";
 
 function Create() {
 
-    const { animalTypes } = useContext(AnimalsContexts);
+    const { animalsTypes, setCreateData } = useContext(AnimalsContexts);
     const [type, setType] = useState(1);
     const [weight, setWeight] =useState('');
+
+    const buttonClick = () =>{
+        setCreateData({type, weight: parseFloat(weight)});
+        setType(1);
+        setWeight('');
+
+    }
 
     return (
         <div className="card m-4">
@@ -16,16 +23,16 @@ function Create() {
                     <label>Our types of animals</label>
                     <select className="form-control" value={type} onChange={e => setType(e.target.value)}>
                         {
-                            animalTypes.map(a => <option key={a.id} value={a.id}>{a.type}</option>)
+                            animalsTypes.map(a => <option key={a.id} value={a.id}>{a.type}</option>)
                         }
                     </select>
                 </div>
                 <div className="form-group">
-                    <label>How much is the {animalTypes.find(a => a.id == type).type} (kg)?</label>
+                    <label>How much is the {animalsTypes.find(a => a.id == type).type} (kg)?</label>
                     <input type="text" className="form-control" value={weight} onChange={e => setWeight(e.target.value)} />
                         <small  className="form-text text-muted">Please enter your animal weight in kg.</small>
                 </div>
-                <button type="button" class="btn btn-info m-2">Add this creature</button>
+                <button type="button" onClick={buttonClick} className="btn btn-info m-2">Add this creature</button>
 
             </div>
         </div>

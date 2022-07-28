@@ -4,6 +4,7 @@ import { KitasContekstas } from './Contexts/PirmasisContestas';
 import M1 from './Components/009/M1';
 import { useState } from 'react';
 import { useRef } from 'react';
+import Boxes from './Components/009/Boxes';
 
 function App() {
 
@@ -16,7 +17,6 @@ function App() {
     const [count, setCount]= useState(0);
 
     const doCount =() =>{
-
         const my = good.current;
 
        setCount(c => c+1);
@@ -38,6 +38,9 @@ function App() {
         </h1>
         <M1 kas="Penki"></M1>
         <button ref={good} onClick={doCount}>+1</button>
+
+        <Boxes></Boxes>
+
         </header>
       </div>
       </PirmasisContekstas.Provider>
