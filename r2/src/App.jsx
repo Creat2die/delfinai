@@ -4,7 +4,7 @@ import './bootstrap.css';
 import AnimalsContexts from './Components/AnimalsContexts';
 import Create from './Components/Create';
 import List from './Components/List';
-import { create, read } from './functions/localstorage';
+import { create, read, destroy } from './functions/localstorage';
 
 
 const keyLock = 'myFantasticZoo';
@@ -20,6 +20,7 @@ const animalsTypes = [
 
 function App(){
   const [createData, setCreateData] = useState(null);
+  const [deleteData, setDeleteData] = useState(null);
   const [animals, setAnimals] = useState(null);
 
   const[lastUpdate, setLastUpsdate] = useState(Date.now())
@@ -36,11 +37,19 @@ function App(){
     setLastUpsdate(Date.now());
   }, [createData])
 
+  useEffect(() => {
+    if(null === deleteData){
+      return;
+    }
+    destroy(keyLock, deleteData);
+    setLastUpsdate(Date.now());
+  }, [deleteData])
+
 
 
   return (
     <AnimalsContexts.Provider value={{
-      animalsTypes, setCreateData, animals
+      animalsTypes, setCreateData, animals,setDeleteData
     }}>
 
       
