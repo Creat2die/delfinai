@@ -22,7 +22,7 @@ function Boxes(){
 
     return (
         <>
-        <h1>Įveskite kiek kvadratų nupiešti</h1>
+        <p>Įveskite kiek kvadratų nupiešti</p>
         <input onChange={kiekis}></input>
         <button onClick={generuoti}>Sukurk</button>
         

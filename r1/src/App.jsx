@@ -5,6 +5,9 @@ import M1 from './Components/009/M1';
 import { useState } from 'react';
 import { useRef } from 'react';
 import Boxes from './Components/009/Boxes';
+import ReactForms2 from './Components/009/ReactForms2';
+import ReactForms3 from './Components/009/ReactForms3';
+import ReactForm4 from './Components/009/ReactForm4';
 
 function App() {
 
@@ -40,6 +43,10 @@ function App() {
         <button ref={good} onClick={doCount}>+1</button>
 
         <Boxes></Boxes>
+        <br/>
+        <ReactForms2></ReactForms2>
+        <ReactForms3></ReactForms3>
+        <ReactForm4></ReactForm4>
 
         </header>
       </div>
