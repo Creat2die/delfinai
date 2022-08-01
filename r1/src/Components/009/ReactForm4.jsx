@@ -36,7 +36,7 @@ function ReactForm4 (){
         </div>
         <div style={{display: 'flex', gap: '30px', paddingBottom: '100px'}}>
         <p>Please input text</p>
-        <input></input>
+        <input onChange={text}></input>
         </div>
 
         </>

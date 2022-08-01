@@ -7,8 +7,7 @@ function ForeverYoung(){
 
     useEffect(() => {
         let howMuch = localStorage.getItem('myLife');
-        if (null === howMuch){
-          
+        if (null === howMuch){        
             setCount({yearsPast: 0});
         } else {
             setCount(JSON.parse(howMuch));
